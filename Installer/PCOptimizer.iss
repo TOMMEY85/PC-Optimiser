@@ -24,7 +24,8 @@ CloseApplications=yes
 RestartApplications=no
 SetupLogging=yes
 
-SetupIconFile=..\PCOptimizer.App\Assets\PCOptimizer-v6.ico
+; L'icône fournie précédemment est invalide pour Inno Setup.
+; L'icône de l'application reste définie dans le projet WPF.
 
 [Languages]
 Name: "french"; MessagesFile: "compiler:Languages\French.isl"
