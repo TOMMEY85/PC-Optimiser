@@ -1,0 +1,1 @@
+PC Optimizer v6.1 — tag this commit as v6.1.0 to publish the installer automatically in GitHub Releases.
