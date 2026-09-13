@@ -1,0 +1,70 @@
+<Window x:Class="PCOptimizer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="PC Optimizer v6.1.1" Width="1200" Height="760" MinWidth="1000" MinHeight="650"
+        WindowStartupLocation="CenterScreen" Background="#07111F">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Foreground" Value="White"/><Setter Property="Background" Value="#14283D"/>
+            <Setter Property="BorderBrush" Value="#244563"/><Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Padding" Value="14,9"/><Setter Property="Margin" Value="0,0,8,8"/>
+            <Setter Property="Cursor" Value="Hand"/><Setter Property="FontWeight" Value="SemiBold"/>
+        </Style>
+        <Style x:Key="Primary" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+            <Setter Property="Background" Value="#0B7CFF"/><Setter Property="BorderBrush" Value="#35A9FF"/>
+        </Style>
+        <Style x:Key="Card" TargetType="Border">
+            <Setter Property="Background" Value="#0D1B2A"/><Setter Property="BorderBrush" Value="#17324C"/>
+            <Setter Property="BorderThickness" Value="1"/><Setter Property="CornerRadius" Value="14"/><Setter Property="Padding" Value="18"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions><ColumnDefinition Width="210"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
+        <Border Grid.Column="0" Background="#081522" BorderBrush="#17324C" BorderThickness="0,0,1,0">
+            <StackPanel Margin="16,20">
+                <StackPanel Orientation="Horizontal" Margin="4,0,4,25">
+                    <Border Width="40" Height="40" CornerRadius="20" Background="#0B7CFF" Margin="0,0,9,0"><TextBlock Text="⚡" FontSize="21" HorizontalAlignment="Center" VerticalAlignment="Center"/></Border>
+                    <StackPanel VerticalAlignment="Center"><TextBlock Text="PC OPTIMIZER" Foreground="White" FontWeight="Bold" FontSize="17"/><TextBlock Text="v6.1.1" Foreground="#55B7FF" FontSize="11"/></StackPanel>
+                </StackPanel>
+                <Button Content="⌂   Accueil" Click="Home_Click" Background="#0D3157"/>
+                <Button Content="▣   Analyse système" Click="Analyze_Click"/>
+                <Button Content="⚡   Optimisation" Click="Optimize_Click"/>
+                <Button Content="🎮   Gaming" Click="Gaming_Click"/>
+                <Button Content="🧹   Nettoyage" Click="Cleanup_Click"/>
+                <Button Content="🌐   Réseau" Click="Network_Click"/>
+                <Button Content="↻   Restauration" Click="Restore_Click"/>
+                <Border Margin="0,25,0,0" Padding="12" Background="#0B1B2A" BorderBrush="#163551" BorderThickness="1" CornerRadius="10">
+                    <StackPanel><TextBlock Text="PROFIL" Foreground="#9EB2C9" FontSize="10"/><TextBlock x:Name="ProfileText" Text="Gaming" Foreground="#38A8FF" FontSize="16" FontWeight="Bold"/><TextBlock Text="Performance • Réactivité" Foreground="#8FA6BE" FontSize="11"/></StackPanel>
+                </Border>
+            </StackPanel>
+        </Border>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="*"/><RowDefinition Height="Auto"/></Grid.RowDefinitions>
+            <Border Grid.Row="0" Background="#091827" BorderBrush="#16304A" BorderThickness="0,0,0,1" Padding="22,15">
+                <Grid><Grid.ColumnDefinitions><ColumnDefinition/><ColumnDefinition Width="Auto"/></Grid.ColumnDefinitions>
+                    <StackPanel><TextBlock Text="PLUS DE PERFORMANCES. MOINS DE LIMITES." Foreground="#54B7FF" FontSize="12" FontWeight="SemiBold"/><TextBlock x:Name="SystemText" Text="Analyse en attente" Foreground="#9EB2C9" Margin="0,4,0,0"/></StackPanel>
+                    <StackPanel Grid.Column="1" Orientation="Horizontal"><Button Content="🎮 Gaming" Click="Gaming_Click"/><Button Content="💼 Productivité" Click="Productivity_Click"/></StackPanel>
+                </Grid>
+            </Border>
+            <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto"><StackPanel Margin="22">
+                <Border Style="{StaticResource Card}" Margin="0,0,0,16"><Grid><Grid.ColumnDefinitions><ColumnDefinition/><ColumnDefinition Width="Auto"/></Grid.ColumnDefinitions>
+                    <StackPanel><TextBlock Text="Bienvenue dans PC Optimizer" Foreground="White" FontSize="25" FontWeight="Bold"/><TextBlock x:Name="ProfileTitle" Text="Gaming" Foreground="#4EB4FF" FontSize="18" FontWeight="SemiBold" Margin="0,7,0,0"/><TextBlock x:Name="ProfileDescription" Text="Optimise ton PC avec des réglages simples et réversibles." Foreground="#9EB2C9" TextWrapping="Wrap" Margin="0,6,0,0"/></StackPanel>
+                    <Button Grid.Column="1" Style="{StaticResource Primary}" Content="⚡ OPTIMISER MON PC" Click="OptimizeAll_Click" VerticalAlignment="Center"/>
+                </Grid></Border>
+                <Grid Margin="0,0,0,16"><Grid.ColumnDefinitions><ColumnDefinition/><ColumnDefinition/><ColumnDefinition/></Grid.ColumnDefinitions>
+                    <Border Style="{StaticResource Card}" Margin="0,0,8,0"><StackPanel><TextBlock Text="Processeur" Foreground="#9EB2C9"/><TextBlock x:Name="CpuText" Text="--" Foreground="White" FontSize="20" FontWeight="Bold" Margin="0,6"/><TextBlock Text="Informations Windows" Foreground="#6F89A4"/></StackPanel></Border>
+                    <Border Grid.Column="1" Style="{StaticResource Card}" Margin="8,0"><StackPanel><TextBlock Text="Mémoire" Foreground="#9EB2C9"/><TextBlock x:Name="RamText" Text="--" Foreground="White" FontSize="20" FontWeight="Bold" Margin="0,6"/><TextBlock Text="Mémoire physique détectée" Foreground="#6F89A4"/></StackPanel></Border>
+                    <Border Grid.Column="2" Style="{StaticResource Card}" Margin="8,0,0,0"><StackPanel><TextBlock Text="Stockage système" Foreground="#9EB2C9"/><TextBlock x:Name="DiskText" Text="--" Foreground="White" FontSize="20" FontWeight="Bold" Margin="0,6"/><TextBlock Text="Lecteur système" Foreground="#6F89A4"/></StackPanel></Border>
+                </Grid>
+                <Grid><Grid.ColumnDefinitions><ColumnDefinition/><ColumnDefinition/></Grid.ColumnDefinitions>
+                    <Border Style="{StaticResource Card}" Margin="0,0,8,16"><StackPanel><TextBlock Text="Optimisations rapides" Foreground="White" FontSize="19" FontWeight="Bold" Margin="0,0,0,12"/>
+                        <Button Style="{StaticResource Primary}" Content="⚡ Mode performances élevées" Click="Power_Click"/><Button Content="🖱 Réduire l'accélération souris" Click="Mouse_Click"/><Button Content="🎮 Optimiser Windows Gaming" Click="GamingOptimize_Click"/><Button Content="🧹 Nettoyer les fichiers temporaires" Click="Cleanup_Click"/><Button Content="🌐 Vider le cache DNS" Click="Dns_Click"/>
+                    </StackPanel></Border>
+                    <Border Grid.Column="1" Style="{StaticResource Card}" Margin="8,0,0,16"><StackPanel><TextBlock Text="État et outils" Foreground="White" FontSize="19" FontWeight="Bold" Margin="0,0,0,12"/><TextBlock x:Name="StatusDetail" Text="Prêt." Foreground="#9EB2C9" TextWrapping="Wrap" Margin="0,0,0,12"/><Button Content="🔍 Analyser le PC" Click="Analyze_Click"/><Button Content="🚀 Ouvrir le gestionnaire des tâches" Click="TaskManager_Click"/><Button Content="🪟 Paramètres graphiques Windows" Click="Graphics_Click"/></StackPanel></Border>
+                </Grid>
+                <Border Style="{StaticResource Card}" Margin="0,0,0,16"><StackPanel><TextBlock Text="Sauvegarde / restauration" Foreground="White" FontSize="19" FontWeight="Bold"/><TextBlock Text="Les réglages système importants doivent rester réversibles. Pour revenir à un état précédent, utilisez la restauration Windows ou annulez les changements effectués par l'application." Foreground="#9EB2C9" TextWrapping="Wrap" Margin="0,8,0,12"/><Button Content="↻ Restaurer / vérifier les réglages" Click="Restore_Click"/></StackPanel></Border>
+            </StackPanel></ScrollViewer>
+            <Border Grid.Row="2" Background="#081522" BorderBrush="#17314A" BorderThickness="0,1,0,0" Padding="15,8"><TextBlock x:Name="StatusText" Text="Prêt." Foreground="#A6BDD4" FontSize="12"/></Border>
+        </Grid>
+    </Grid>
+</Window>
