@@ -1,5 +1,5 @@
 #define MyAppName "PC Optimizer"
-#define MyAppVersion "6.1.0"
+#define MyAppVersion "6.1.1"
 #define MyAppExeName "PCOptimizer.exe"
 #define PublishDir "..\PCOptimizer.App\bin\Release\net8.0-windows\win-x64\publish"
 
@@ -11,21 +11,18 @@ DefaultDirName={autopf}\PC Optimizer
 DefaultGroupName=PC Optimizer
 DisableProgramGroupPage=yes
 OutputDir=Output
-OutputBaseFilename=PCOptimizer-Setup-v6.1
+OutputBaseFilename=PCOptimizer-Setup-v6.1.1
 Compression=lzma2
 SolidCompression=yes
 WizardStyle=modern
 PrivilegesRequired=admin
 ArchitecturesAllowed=x64compatible
 ArchitecturesInstallIn64BitMode=x64compatible
-UninstallDisplayName=PC Optimizer v6.1
+UninstallDisplayName=PC Optimizer v6.1.1
 UninstallDisplayIcon={app}\{#MyAppExeName}
 CloseApplications=yes
 RestartApplications=no
 SetupLogging=yes
-
-; L'icône fournie précédemment est invalide pour Inno Setup.
-; L'icône de l'application reste définie dans le projet WPF.
 
 [Languages]
 Name: "french"; MessagesFile: "compiler:Languages\French.isl"
@@ -41,4 +38,4 @@ Name: "{autoprograms}\PC Optimizer"; Filename: "{app}\{#MyAppExeName}"
 Name: "{autodesktop}\PC Optimizer"; Filename: "{app}\{#MyAppExeName}"; Tasks: desktopicon
 
 [Run]
-Filename: "{app}\{#MyAppExeName}"; Description: "Lancer PC Optimizer v6.1"; Flags: nowait postinstall skipifsilent runascurrentuser
+Filename: "{app}\{#MyAppExeName}"; Description: "Lancer PC Optimizer v6.1.1"; Flags: nowait postinstall skipifsilent runascurrentuser
