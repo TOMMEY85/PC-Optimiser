@@ -11,9 +11,9 @@
     <AssemblyName>PCOptimizer</AssemblyName>
     <Product>PC Optimizer</Product>
     <AssemblyTitle>PC Optimizer</AssemblyTitle>
-    <Version>7.0.1</Version>
-    <AssemblyVersion>7.0.1.0</AssemblyVersion>
-    <FileVersion>7.0.1.0</FileVersion>
+    <Version>7.0.2</Version>
+    <AssemblyVersion>7.0.2.0</AssemblyVersion>
+    <FileVersion>7.0.2.0</FileVersion>
     <EnableDefaultApplicationDefinition>false</EnableDefaultApplicationDefinition>
     <EnableDefaultPageItems>false</EnableDefaultPageItems>
   </PropertyGroup>
