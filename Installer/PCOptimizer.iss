@@ -15,7 +15,6 @@ OutputBaseFilename=PCOptimizer-Setup-v7.0
 Compression=lzma2
 SolidCompression=yes
 WizardStyle=modern
-SetupIconFile=..\PCOptimizer.App\Assets\PCOptimizer-v6.ico
 PrivilegesRequired=admin
 ArchitecturesAllowed=x64compatible
 ArchitecturesInstallIn64BitMode=x64compatible
@@ -33,10 +32,9 @@ Name: "desktopicon"; Description: "Créer un raccourci sur le Bureau"; GroupDesc
 
 [Files]
 Source: "{#PublishDir}\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
-Source: "..\PCOptimizer.App\Assets\PCOptimizer-v6.ico"; DestDir: "{app}"; Flags: ignoreversion
 
 [Icons]
-Name: "{autoprograms}\PC Optimizer"; Filename: "{app}\{#MyAppExeName}"; IconFilename: "{app}\PCOptimizer-v6.ico"
+Name: "{autoprograms}\PC Optimizer"; Filename: "{app}\{#MyAppExeName}"
 Name: "{autodesktop}\PC Optimizer"; Filename: "{app}\{#MyAppExeName}"; IconFilename: "{app}\PCOptimizer-v6.ico"; Tasks: desktopicon
 
 [Run]
