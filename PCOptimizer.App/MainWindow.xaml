@@ -1,38 +1,282 @@
-<Window x:Class="PCOptimizer.MainWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Title="PC Optimizer v7.0" Width="1440" Height="900" MinWidth="1180" MinHeight="760" WindowStartupLocation="CenterScreen" Background="#070D18" SnapsToDevicePixels="True">
-<Window.Resources>
-<Style x:Key="NavButton" TargetType="Button"><Setter Property="Foreground" Value="#B9C7D8"/><Setter Property="Background" Value="Transparent"/><Setter Property="BorderBrush" Value="Transparent"/><Setter Property="BorderThickness" Value="0"/><Setter Property="HorizontalContentAlignment" Value="Left"/><Setter Property="Padding" Value="16,12"/><Setter Property="Margin" Value="0,3,0,3"/><Setter Property="Cursor" Value="Hand"/><Setter Property="FontSize" Value="13"/></Style>
-<Style x:Key="NavActive" TargetType="Button" BasedOn="{StaticResource NavButton}"><Setter Property="Foreground" Value="White"/><Setter Property="Background" Value="#102A4A"/></Style>
-<Style x:Key="ActionButton" TargetType="Button"><Setter Property="Foreground" Value="White"/><Setter Property="Background" Value="#12263D"/><Setter Property="BorderBrush" Value="#23435F"/><Setter Property="BorderThickness" Value="1"/><Setter Property="Padding" Value="14,10"/><Setter Property="Margin" Value="0,0,0,8"/><Setter Property="Cursor" Value="Hand"/><Setter Property="FontSize" Value="12"/><Setter Property="FontWeight" Value="SemiBold"/></Style>
-<Style x:Key="PrimaryButton" TargetType="Button" BasedOn="{StaticResource ActionButton}"><Setter Property="Background" Value="#0C84FF"/><Setter Property="BorderBrush" Value="#48B7FF"/></Style>
-<Style x:Key="DangerButton" TargetType="Button" BasedOn="{StaticResource ActionButton}"><Setter Property="Background" Value="#6F2430"/><Setter Property="BorderBrush" Value="#F15E70"/></Style>
-<Style x:Key="Card" TargetType="Border"><Setter Property="Background" Value="#0C1726"/><Setter Property="BorderBrush" Value="#182D45"/><Setter Property="BorderThickness" Value="1"/><Setter Property="CornerRadius" Value="16"/><Setter Property="Padding" Value="18"/><Setter Property="Margin" Value="0,0,14,14"/></Style>
-<Style x:Key="Muted" TargetType="TextBlock"><Setter Property="Foreground" Value="#8EA4BC"/><Setter Property="FontSize" Value="12"/></Style>
-<Style x:Key="Metric" TargetType="TextBlock"><Setter Property="Foreground" Value="White"/><Setter Property="FontSize" Value="21"/><Setter Property="FontWeight" Value="Bold"/></Style>
-</Window.Resources>
-<Grid><Grid.ColumnDefinitions><ColumnDefinition Width="245"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
-<Border Grid.Column="0" Background="#08111E" BorderBrush="#13283E" BorderThickness="0,0,1,0"><Grid Margin="16"><Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="*"/><RowDefinition Height="Auto"/></Grid.RowDefinitions>
-<StackPanel><Border Width="52" Height="52" CornerRadius="16" Background="#0B82FF" HorizontalAlignment="Left"><TextBlock Text="⚡" Foreground="White" FontSize="28" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/></Border><TextBlock Text="PC OPTIMIZER" Foreground="White" FontSize="19" FontWeight="Bold" Margin="0,12,0,0"/><TextBlock Text="v7.0  •  GAMING EDITION" Foreground="#4DB7FF" FontSize="10" FontWeight="SemiBold" Margin="0,2,0,22"/><TextBlock Text="MENU" Foreground="#526A82" FontSize="10" FontWeight="Bold" Margin="5,0,0,7"/>
-<Button Style="{StaticResource NavActive}" Content="⌂   Accueil" Click="Home_Click"/><Button Style="{StaticResource NavButton}" Content="▣   Analyse système" Click="Analyze_Click"/><Button Style="{StaticResource NavButton}" Content="⚡   Optimisation" Click="Optimize_Click"/><Button Style="{StaticResource NavButton}" Content="🎮   Gaming" Click="Gaming_Click"/><Button Style="{StaticResource NavButton}" Content="🌐   Réseau / latence" Click="Network_Click"/><Button Style="{StaticResource NavButton}" Content="🧹   Nettoyage" Click="Cleanup_Click"/><Button Style="{StaticResource NavButton}" Content="↻   Restauration" Click="Restore_Click"/></StackPanel>
-<Border Grid.Row="2" Background="#0D1D30" BorderBrush="#1A3855" BorderThickness="1" CornerRadius="14" Padding="14"><StackPanel><TextBlock Text="PROFIL ACTIF" Foreground="#647C94" FontSize="9" FontWeight="Bold"/><TextBlock x:Name="ProfileText" Text="Gaming" Foreground="#50B9FF" FontSize="18" FontWeight="Bold" Margin="0,3,0,0"/><TextBlock Text="FPS • Réactivité • Stabilité" Foreground="#8FA5BA" FontSize="10"/></StackPanel></Border>
-</Grid></Border>
-<Grid Grid.Column="1"><Grid.RowDefinitions><RowDefinition Height="78"/><RowDefinition Height="*"/><RowDefinition Height="36"/></Grid.RowDefinitions>
-<Border Grid.Row="0" Background="#091421" BorderBrush="#13283E" BorderThickness="0,0,0,1" Padding="26,0"><Grid VerticalAlignment="Center"><StackPanel><TextBlock Text="PC OPTIMIZER" Foreground="#5EBEFF" FontSize="11" FontWeight="Bold"/><TextBlock x:Name="SystemText" Text="Analyse en attente" Foreground="#A2B5C8" FontSize="12" Margin="0,3,0,0"/></StackPanel><StackPanel Orientation="Horizontal" HorizontalAlignment="Right"><Button Style="{StaticResource ActionButton}" Width="110" Content="🎮  Gaming" Click="Gaming_Click"/><Button Style="{StaticResource ActionButton}" Width="125" Content="💼  Productivité" Click="Productivity_Click"/></StackPanel></Grid></Border>
-<ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto"><StackPanel Margin="26,22,26,16">
-<Grid><Grid.ColumnDefinitions><ColumnDefinition Width="1.45*"/><ColumnDefinition Width="0.85*"/></Grid.ColumnDefinitions>
-<Border Grid.Column="0" Style="{StaticResource Card}" Padding="24"><StackPanel><TextBlock Text="TON PC. À SON MEILLEUR." Foreground="#57B9FF" FontSize="11" FontWeight="Bold"/><TextBlock Text="Mode Gaming" Foreground="White" FontSize="31" FontWeight="Bold" Margin="0,5,0,0"/><TextBlock x:Name="ProfileTitle" Text="Gaming" Foreground="#42AFFF" FontSize="18" FontWeight="SemiBold" Margin="0,4,0,0"/><TextBlock x:Name="ProfileDescription" Text="Priorité aux FPS, à la réactivité et à la stabilité." Style="{StaticResource Muted}" FontSize="13" Margin="0,8,0,18"/><Button Style="{StaticResource PrimaryButton}" Width="195" Content="⚡  OPTIMISER MON PC" Click="OptimizeAll_Click"/></StackPanel></Border>
-<Border Grid.Column="1" Style="{StaticResource Card}" Padding="22"><StackPanel><TextBlock Text="SCORE PERFORMANCE" Foreground="#768EA6" FontSize="10" FontWeight="Bold"/><TextBlock x:Name="ScoreText" Text="-- / 100" Foreground="White" FontSize="39" FontWeight="Bold" Margin="0,4"/><ProgressBar x:Name="ScoreBar" Height="9" Minimum="0" Maximum="100" Value="0" Background="#14283D" Foreground="#1490FF"/><TextBlock x:Name="ScoreHint" Text="Analyse ton PC pour calculer le score." Style="{StaticResource Muted}" Margin="0,10,0,0" TextWrapping="Wrap"/></StackPanel></Border></Grid>
-<Grid><Grid.ColumnDefinitions><ColumnDefinition/><ColumnDefinition/><ColumnDefinition/><ColumnDefinition/></Grid.ColumnDefinitions>
-<Border Grid.Column="0" Style="{StaticResource Card}"><StackPanel><TextBlock Text="CPU" Style="{StaticResource Muted}"/><TextBlock x:Name="CpuText" Text="--" Style="{StaticResource Metric}" Margin="0,5,0,0"/><TextBlock Text="Processeur" Style="{StaticResource Muted}"/></StackPanel></Border>
-<Border Grid.Column="1" Style="{StaticResource Card}"><StackPanel><TextBlock Text="GPU" Style="{StaticResource Muted}"/><TextBlock x:Name="GpuText" Text="--" Style="{StaticResource Metric}" Margin="0,5,0,0"/><TextBlock Text="Carte graphique" Style="{StaticResource Muted}"/></StackPanel></Border>
-<Border Grid.Column="2" Style="{StaticResource Card}"><StackPanel><TextBlock Text="RAM" Style="{StaticResource Muted}"/><TextBlock x:Name="RamText" Text="--" Style="{StaticResource Metric}" Margin="0,5,0,0"/><TextBlock Text="Mémoire" Style="{StaticResource Muted}"/></StackPanel></Border>
-<Border Grid.Column="3" Style="{StaticResource Card}"><StackPanel><TextBlock Text="STOCKAGE" Style="{StaticResource Muted}"/><TextBlock x:Name="DiskText" Text="--" Style="{StaticResource Metric}" Margin="0,5,0,0"/><TextBlock Text="Lecteur système" Style="{StaticResource Muted}"/></StackPanel></Border></Grid>
-<Grid><Grid.ColumnDefinitions><ColumnDefinition/><ColumnDefinition/></Grid.ColumnDefinitions>
-<Border Grid.Column="0" Style="{StaticResource Card}"><StackPanel><TextBlock Text="GAMING" Foreground="White" FontSize="19" FontWeight="Bold"/><TextBlock Text="Optimisations ciblées pour tes jeux." Style="{StaticResource Muted}" Margin="0,3,0,14"/><Button Style="{StaticResource PrimaryButton}" Content="🎮  Optimiser Fortnite" Click="Fortnite_Click"/><Button Style="{StaticResource PrimaryButton}" Content="💀  Optimiser Call of Duty" Click="CallOfDuty_Click"/><Button Style="{StaticResource ActionButton}" Content="🚀  Booster les jeux en cours" Click="GameBooster_Click"/><Button Style="{StaticResource ActionButton}" Content="🖱  Désactiver l'accélération souris" Click="Mouse_Click"/></StackPanel></Border>
-<Border Grid.Column="1" Style="{StaticResource Card}"><StackPanel><TextBlock Text="WINDOWS &amp; RÉSEAU" Foreground="White" FontSize="19" FontWeight="Bold"/><TextBlock Text="Réglages rapides et diagnostic." Style="{StaticResource Muted}" Margin="0,3,0,14"/><Button Style="{StaticResource PrimaryButton}" Content="⚡  Mode performances élevées" Click="Power_Click"/><Button Style="{StaticResource ActionButton}" Content="🌐  Tester la latence réseau" Click="Network_Click"/><Button Style="{StaticResource ActionButton}" Content="🖥  Paramètres graphiques Windows" Click="Graphics_Click"/><Button Style="{StaticResource ActionButton}" Content="🧹  Nettoyer les temporaires" Click="Cleanup_Click"/></StackPanel></Border></Grid>
-<Grid><Grid.ColumnDefinitions><ColumnDefinition/><ColumnDefinition/></Grid.ColumnDefinitions>
-<Border Grid.Column="0" Style="{StaticResource Card}"><StackPanel><TextBlock Text="JEUX DÉTECTÉS" Foreground="White" FontSize="18" FontWeight="Bold"/><TextBlock x:Name="GameStatusText" Text="Recherche de Fortnite et Call of Duty..." Style="{StaticResource Muted}" Margin="0,8,0,0" TextWrapping="Wrap"/><Border Background="#0A1421" CornerRadius="10" Margin="0,12,0,0" Padding="12"><TextBlock Text="Le booster agit uniquement sur les jeux actuellement lancés et applique une priorité temporaire." Style="{StaticResource Muted}" TextWrapping="Wrap"/></Border></StackPanel></Border>
-<Border Grid.Column="1" Style="{StaticResource Card}"><StackPanel><TextBlock Text="SAUVEGARDE &amp; RESTAURATION" Foreground="White" FontSize="18" FontWeight="Bold"/><TextBlock Text="Sécurise les réglages avant de les modifier." Style="{StaticResource Muted}" Margin="0,3,0,14"/><Button Style="{StaticResource ActionButton}" Content="💾  Sauvegarder l'état actuel" Click="Backup_Click"/><Button Style="{StaticResource DangerButton}" Content="↻  Restaurer le dernier état" Click="Restore_Click"/></StackPanel></Border></Grid>
-</StackPanel></ScrollViewer>
-<Border Grid.Row="2" Background="#08111E" BorderBrush="#13283E" BorderThickness="0,1,0,0" Padding="18,0"><TextBlock x:Name="StatusText" Text="Prêt." Foreground="#8EA4BC" FontSize="11" VerticalAlignment="Center"/></Border>
-</Grid></Grid>
+<Window x:Class="PCOptimizer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="PC Optimizer v7.0"
+        Icon="Assets\PCOptimizer-v6.ico"
+        Width="1380" Height="900" MinWidth="1100" MinHeight="720"
+        WindowStartupLocation="CenterScreen"
+        Background="#101216">
+
+    <Window.Resources>
+        <Style x:Key="ActionButton" TargetType="Button">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="#242A33"/>
+            <Setter Property="BorderBrush" Value="#303846"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Padding" Value="14,9"/>
+            <Setter Property="Margin" Value="0,0,0,8"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Cursor" Value="Hand"/>
+        </Style>
+        <Style x:Key="PrimaryButton" TargetType="Button" BasedOn="{StaticResource ActionButton}">
+            <Setter Property="Background" Value="#E8424F"/>
+            <Setter Property="BorderBrush" Value="#FF6470"/>
+        </Style>
+        <Style x:Key="Card" TargetType="Border">
+            <Setter Property="Background" Value="#191C21"/>
+            <Setter Property="BorderBrush" Value="#242932"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="CornerRadius" Value="12"/>
+            <Setter Property="Padding" Value="16"/>
+            <Setter Property="Margin" Value="0,0,12,12"/>
+        </Style>
+        <Style x:Key="Metric" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+        <Style x:Key="Muted" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="#9BA6B4"/>
+            <Setter Property="FontSize" Value="12"/>
+        </Style>
+        <Style x:Key="Tiny" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="#778291"/>
+            <Setter Property="FontSize" Value="10"/>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="86"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="34"/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" Background="#14171B" BorderBrush="#252A31" BorderThickness="0,0,0,1" Padding="24,0">
+            <Grid VerticalAlignment="Center">
+                <StackPanel>
+                    <TextBlock Text="PC OPTIMIZER v7.0" Foreground="White" FontSize="26" FontWeight="Bold"/>
+                    <TextBlock x:Name="SystemText" Text="Windows • Analyse en attente" Foreground="#9BA6B4" FontSize="12" Margin="0,3,0,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button Style="{StaticResource ActionButton}" Width="105" Content="🎮 Gaming" Click="Gaming_Click"/>
+                    <Button Style="{StaticResource ActionButton}" Width="125" Content="💼 Productivité" Click="Productivity_Click"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+            <StackPanel Margin="24">
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1.5*"/>
+                        <ColumnDefinition Width="0.85*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Border Grid.Column="0" Style="{StaticResource Card}" Padding="20">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="190"/>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel>
+                                <TextBlock Text="PROFIL ACTIF" Foreground="#8995A5" FontSize="10" FontWeight="Bold"/>
+                                <TextBlock x:Name="ProfileTitle" Text="Gaming" Foreground="White" FontSize="28" FontWeight="Bold" Margin="0,3,0,0"/>
+                                <TextBlock x:Name="ProfileText" Text="Gaming" Foreground="#58AFFF" FontSize="17" FontWeight="SemiBold"/>
+                                <TextBlock x:Name="ProfileDescription"
+                                           Text="Priorité aux FPS, à la réactivité et à la stabilité. Les réglages restent réversibles."
+                                           Style="{StaticResource Muted}" TextWrapping="Wrap" Margin="0,6,0,16"/>
+                            </StackPanel>
+                            <Button Grid.Column="1" Style="{StaticResource PrimaryButton}"
+                                    Content="⚡  OPTIMISER MON PC" Height="52"
+                                    VerticalAlignment="Center" Click="OptimizeAll_Click"/>
+                        </Grid>
+                    </Border>
+
+                    <Border Grid.Column="1" Style="{StaticResource Card}">
+                        <StackPanel>
+                            <TextBlock Text="OPTIMISATION WINDOWS" Foreground="#9BA6B4" FontSize="11"/>
+                            <TextBlock x:Name="ScoreText" Text="-- / 100" Foreground="White" FontSize="34" FontWeight="Bold" Margin="0,4"/>
+                            <ProgressBar x:Name="ScoreBar" Height="9" Minimum="0" Maximum="100" Value="0"
+                                         Background="#2A3038" Foreground="#E8424F"/>
+                            <TextBlock x:Name="ScoreHint" Text="Analyse ton PC pour calculer le score." Style="{StaticResource Tiny}" Margin="0,8,0,0" TextWrapping="Wrap"/>
+                        </StackPanel>
+                    </Border>
+                </Grid>
+
+                <TextBlock Text="DIAGNOSTIC DU PC — CARTES CLIQUABLES" Foreground="White" FontSize="19" FontWeight="Bold" Margin="0,5,0,12"/>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/><ColumnDefinition/><ColumnDefinition/><ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Border Grid.Column="0" Style="{StaticResource Card}">
+                        <StackPanel>
+                            <TextBlock Text="CPU" Style="{StaticResource Muted}"/>
+                            <TextBlock x:Name="CpuText" Text="Non analysé" Style="{StaticResource Metric}" Margin="0,5"/>
+                            <Button Style="{StaticResource ActionButton}" Content="Détails CPU" Click="Analyze_Click"/>
+                        </StackPanel>
+                    </Border>
+                    <Border Grid.Column="1" Style="{StaticResource Card}">
+                        <StackPanel>
+                            <TextBlock Text="GPU" Style="{StaticResource Muted}"/>
+                            <TextBlock x:Name="GpuText" Text="Non analysé" Style="{StaticResource Metric}" Margin="0,5"/>
+                            <Button Style="{StaticResource ActionButton}" Content="Détails GPU" Click="Analyze_Click"/>
+                        </StackPanel>
+                    </Border>
+                    <Border Grid.Column="2" Style="{StaticResource Card}">
+                        <StackPanel>
+                            <TextBlock Text="RAM" Style="{StaticResource Muted}"/>
+                            <TextBlock x:Name="RamText" Text="Non analysée" Style="{StaticResource Metric}" Margin="0,5"/>
+                            <Button Style="{StaticResource ActionButton}" Content="Détails RAM" Click="Analyze_Click"/>
+                        </StackPanel>
+                    </Border>
+                    <Border Grid.Column="3" Style="{StaticResource Card}">
+                        <StackPanel>
+                            <TextBlock Text="BIOS / CARTE MÈRE" Style="{StaticResource Muted}"/>
+                            <TextBlock Text="À analyser" Style="{StaticResource Metric}" Margin="0,5"/>
+                            <Button Style="{StaticResource ActionButton}" Content="Détails BIOS" Click="Analyze_Click"/>
+                        </StackPanel>
+                    </Border>
+                </Grid>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/><ColumnDefinition/><ColumnDefinition/><ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Border Grid.Column="0" Style="{StaticResource Card}">
+                        <StackPanel>
+                            <TextBlock Text="STOCKAGE PRINCIPAL" Style="{StaticResource Muted}"/>
+                            <TextBlock x:Name="DiskText" Text="Non analysé" Style="{StaticResource Metric}" Margin="0,5"/>
+                            <TextBlock Text="Lecteur système" Style="{StaticResource Tiny}"/>
+                        </StackPanel>
+                    </Border>
+                    <Border Grid.Column="1" Style="{StaticResource Card}">
+                        <StackPanel>
+                            <TextBlock Text="DÉMARRAGE" Style="{StaticResource Muted}"/>
+                            <TextBlock Text="Analyse disponible" Style="{StaticResource Metric}" Margin="0,5"/>
+                            <Button Style="{StaticResource ActionButton}" Content="Gérer" Click="Optimize_Click"/>
+                        </StackPanel>
+                    </Border>
+                    <Border Grid.Column="2" Style="{StaticResource Card}">
+                        <StackPanel>
+                            <TextBlock Text="PLAN D'ALIMENTATION" Style="{StaticResource Muted}"/>
+                            <TextBlock Text="Analyse / réglage" Style="{StaticResource Metric}" Margin="0,5"/>
+                            <Button Style="{StaticResource ActionButton}" Content="Détails" Click="Power_Click"/>
+                        </StackPanel>
+                    </Border>
+                    <Border Grid.Column="3" Style="{StaticResource Card}">
+                        <StackPanel>
+                            <TextBlock Text="WINDOWS" Style="{StaticResource Muted}"/>
+                            <TextBlock Text="État du système" Style="{StaticResource Metric}" Margin="0,5"/>
+                            <Button Style="{StaticResource ActionButton}" Content="Paramètres Windows" Click="Graphics_Click"/>
+                        </StackPanel>
+                    </Border>
+                </Grid>
+
+                <TextBlock Text="OPTIMISATIONS" Foreground="White" FontSize="19" FontWeight="Bold" Margin="0,6,0,12"/>
+
+                <Grid>
+                    <Grid.ColumnDefinitions><ColumnDefinition/><ColumnDefinition/></Grid.ColumnDefinitions>
+
+                    <Border Grid.Column="0" Style="{StaticResource Card}" Padding="18">
+                        <StackPanel>
+                            <TextBlock Text="⚡  PLAN D'ALIMENTATION" Foreground="White" FontSize="19" FontWeight="Bold"/>
+                            <TextBlock Text="Active le plan Performances élevées. Il privilégie les performances du processeur et la réactivité." Style="{StaticResource Muted}" TextWrapping="Wrap" Margin="0,7,0,14"/>
+                            <Button Style="{StaticResource PrimaryButton}" Content="Activer Performances élevées" Click="Power_Click"/>
+                        </StackPanel>
+                    </Border>
+
+                    <Border Grid.Column="1" Style="{StaticResource Card}" Padding="18">
+                        <StackPanel>
+                            <TextBlock Text="🔌  PARAMÈTRES USB" Foreground="White" FontSize="19" FontWeight="Bold"/>
+                            <TextBlock Text="Section prête pour les réglages USB et la stabilité des périphériques gaming." Style="{StaticResource Muted}" TextWrapping="Wrap" Margin="0,7,0,14"/>
+                            <Button Style="{StaticResource ActionButton}" Content="Analyser les périphériques" Click="Analyze_Click"/>
+                        </StackPanel>
+                    </Border>
+                </Grid>
+
+                <Grid>
+                    <Grid.ColumnDefinitions><ColumnDefinition/><ColumnDefinition/></Grid.ColumnDefinitions>
+                    <Border Grid.Column="0" Style="{StaticResource Card}">
+                        <StackPanel>
+                            <TextBlock Text="🎮 GAMING — FORTNITE" Foreground="White" FontSize="19" FontWeight="Bold"/>
+                            <TextBlock Text="Profil léger : priorité temporaire du jeu + paramètres graphiques Windows." Style="{StaticResource Muted}" TextWrapping="Wrap" Margin="0,7,0,12"/>
+                            <StackPanel Orientation="Horizontal">
+                                <Button Style="{StaticResource PrimaryButton}" Content="Optimiser Fortnite" Click="Fortnite_Click"/>
+                                <Button Style="{StaticResource ActionButton}" Content="Booster" Click="GameBooster_Click"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+
+                    <Border Grid.Column="1" Style="{StaticResource Card}">
+                        <StackPanel>
+                            <TextBlock Text="💀 GAMING — CALL OF DUTY" Foreground="White" FontSize="19" FontWeight="Bold"/>
+                            <TextBlock Text="Priorité temporaire du processus et ouverture des paramètres graphiques Windows." Style="{StaticResource Muted}" TextWrapping="Wrap" Margin="0,7,0,12"/>
+                            <StackPanel Orientation="Horizontal">
+                                <Button Style="{StaticResource PrimaryButton}" Content="Optimiser Call of Duty" Click="CallOfDuty_Click"/>
+                                <Button Style="{StaticResource ActionButton}" Content="Booster" Click="GameBooster_Click"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+                </Grid>
+
+                <Grid>
+                    <Grid.ColumnDefinitions><ColumnDefinition/><ColumnDefinition/></Grid.ColumnDefinitions>
+
+                    <Border Grid.Column="0" Style="{StaticResource Card}">
+                        <StackPanel>
+                            <TextBlock Text="🌐 RÉSEAU / LATENCE" Foreground="White" FontSize="19" FontWeight="Bold"/>
+                            <TextBlock Text="Purge DNS puis test de latence vers Cloudflare pour vérifier la qualité du réseau." Style="{StaticResource Muted}" TextWrapping="Wrap" Margin="0,7,0,12"/>
+                            <Button Style="{StaticResource ActionButton}" Content="Tester la latence" Click="Network_Click"/>
+                        </StackPanel>
+                    </Border>
+
+                    <Border Grid.Column="1" Style="{StaticResource Card}">
+                        <StackPanel>
+                            <TextBlock Text="🖱 RÉACTIVITÉ SOURIS" Foreground="White" FontSize="19" FontWeight="Bold"/>
+                            <TextBlock Text="Désactive l'accélération Windows pour un comportement plus constant en jeu." Style="{StaticResource Muted}" TextWrapping="Wrap" Margin="0,7,0,12"/>
+                            <Button Style="{StaticResource ActionButton}" Content="Appliquer" Click="Mouse_Click"/>
+                        </StackPanel>
+                    </Border>
+                </Grid>
+
+                <Grid>
+                    <Grid.ColumnDefinitions><ColumnDefinition/><ColumnDefinition/></Grid.ColumnDefinitions>
+
+                    <Border Grid.Column="0" Style="{StaticResource Card}">
+                        <StackPanel>
+                            <TextBlock Text="🧹 NETTOYAGE ET STOCKAGE" Foreground="White" FontSize="19" FontWeight="Bold"/>
+                            <TextBlock Text="Supprime les temporaires accessibles sans toucher aux fichiers personnels." Style="{StaticResource Muted}" TextWrapping="Wrap" Margin="0,7,0,12"/>
+                            <Button Style="{StaticResource ActionButton}" Content="Nettoyer" Click="Cleanup_Click"/>
+                        </StackPanel>
+                    </Border>
+
+                    <Border Grid.Column="1" Style="{StaticResource Card}">
+                        <StackPanel>
+                            <TextBlock Text="💾 SAUVEGARDE / RESTAURATION" Foreground="White" FontSize="19" FontWeight="Bold"/>
+                            <TextBlock Text="Sauvegarde l'état du plan d'alimentation et des réglages souris avant les optimisations." Style="{StaticResource Muted}" TextWrapping="Wrap" Margin="0,7,0,12"/>
+                            <StackPanel Orientation="Horizontal">
+                                <Button Style="{StaticResource ActionButton}" Content="Sauvegarder" Click="Backup_Click"/>
+                                <Button Style="{StaticResource DangerButton}" Content="Restaurer" Click="Restore_Click"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+                </Grid>
+
+                <Border Style="{StaticResource Card}" Padding="16">
+                    <TextBlock x:Name="GameStatusText" Text="Fortnite / Call of Duty : détection en attente." Style="{StaticResource Muted}"/>
+                </Border>
+
+            </StackPanel>
+        </ScrollViewer>
+
+        <Border Grid.Row="2" Background="#14171B" BorderBrush="#252A31" BorderThickness="0,1,0,0" Padding="18,0">
+            <TextBlock x:Name="StatusText" Text="Prêt." Foreground="#9BA6B4" FontSize="11" VerticalAlignment="Center"/>
+        </Border>
+    </Grid>
 </Window>
