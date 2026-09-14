@@ -7,6 +7,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <ApplicationIcon>Assets\PCOptimizer-v6.ico</ApplicationIcon>
+    <ApplicationIconAndManifest>true</ApplicationIconAndManifest>
     <AssemblyName>PCOptimizer</AssemblyName>
     <Product>PC Optimizer</Product>
     <AssemblyTitle>PC Optimizer</AssemblyTitle>
