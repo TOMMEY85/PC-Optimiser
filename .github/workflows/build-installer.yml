@@ -31,17 +31,25 @@ jobs:
         shell: powershell
         run: .\Build-Installer.ps1
 
+      - name: Verify WPF XAML resource
+        shell: powershell
+        run: |
+          if (-not (Test-Path 'PCOptimizer.App\bin\Release\net8.0-windows\win-x64\publish\PCOptimizer.exe')) { throw 'PCOptimizer.exe absent du dossier publish.' }
+          $publish = 'PCOptimizer.App\bin\Release\net8.0-windows\win-x64\publish'
+          if (-not (Test-Path "$publish\PCOptimizer.dll")) { throw 'PCOptimizer.dll absent du dossier publish.' }
+          Write-Host 'Publish WPF OK : PCOptimizer.exe et PCOptimizer.dll présents.'
+
       - name: Upload installer artifact
         uses: actions/upload-artifact@v4
         with:
-          name: PCOptimizer-Setup-v6.1
-          path: Installer/Output/PCOptimizer-Setup-v6.1.exe
+          name: PCOptimizer-Setup-v6.1.1
+          path: Installer/Output/PCOptimizer-Setup-v6.1.1.exe
           if-no-files-found: error
 
       - name: Publish GitHub Release
         if: startsWith(github.ref, 'refs/tags/v')
         uses: softprops/action-gh-release@v2
         with:
-          files: Installer/Output/PCOptimizer-Setup-v6.1.exe
+          files: Installer/Output/PCOptimizer-Setup-v6.1.1.exe
           generate_release_notes: true
           fail_on_unmatched_files: true
