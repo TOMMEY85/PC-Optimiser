@@ -4,9 +4,10 @@ $root = Split-Path -Parent $MyInvocation.MyCommand.Path
 $app = Join-Path $root 'PCOptimizer.App'
 $installer = Join-Path $root 'Installer\PCOptimizer.iss'
 
-Write-Host '=== PC Optimizer v6.1.1 - Publication Windows x64 ===' -ForegroundColor Cyan
+Write-Host '=== PC Optimizer v7.0 - Publication Windows x64 ===' -ForegroundColor Cyan
 Push-Location $app
 try {
+    dotnet restore
     dotnet publish -c Release -r win-x64 --self-contained true -p:PublishSingleFile=false
 }
 finally {
@@ -29,15 +30,15 @@ if (-not $iscc) {
 }
 
 Write-Host "Inno Setup : $iscc" -ForegroundColor DarkGray
-Write-Host '=== Création du programme installation ===' -ForegroundColor Cyan
+Write-Host "=== Création du programme d'installation ===" -ForegroundColor Cyan
 & $iscc $installer
 
 if ($LASTEXITCODE -ne 0) {
     throw "La compilation Inno Setup a échoué (code $LASTEXITCODE)."
 }
 
-$out = Join-Path $root 'Installer\Output\PCOptimizer-Setup-v6.1.1.exe'
+$out = Join-Path $root 'Installer\Output\PCOptimizer-Setup-v7.0.exe'
 Write-Host ''
 Write-Host 'Installation créée :' -ForegroundColor Green
 Write-Host $out -ForegroundColor Green
-Start-Process explorer.exe -ArgumentList "/select,`"$out`""
+Start-Process explorer.exe -ArgumentList ("/select,""" + $out + """")
