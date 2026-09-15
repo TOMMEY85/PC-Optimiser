@@ -563,8 +563,12 @@ public partial class MainWindow : Window
         }
     }
 
-    private void Graphics_Click(object sender, RoutedEventArgs e)
-        => Start("ms-settings:display-advancedgraphics");
+    private void Graphics_Click(object sender, RoutedEventArgs e) => OpenGraphicsSettings();
+
+    private static void OpenGraphicsSettings()
+    {
+        Start("ms-settings:display-advancedgraphics");
+    }
 
     private void Backup_Click(object sender, RoutedEventArgs e)
     {
