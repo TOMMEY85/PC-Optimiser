@@ -23,7 +23,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Resource Include="Assets\PCOptimizer-v6.ico" />
       <Resource Include="Assets\PCOptimizer-v8.ico" />
   </ItemGroup>
 </Project>
