@@ -60,6 +60,22 @@
 <Border Grid.Column="2" Style="{StaticResource CardStyle}"><StackPanel><TextBlock Text="Profil actif" Foreground="White" FontSize="16" FontWeight="Bold"/><TextBlock Text="🎮" Foreground="#36B9FF" FontSize="29" Margin="0,7,0,0"/><TextBlock Text="Gaming" Foreground="White" FontSize="20" FontWeight="Bold"/><TextBlock x:Name="ProfileDescription" Text="Priorité aux FPS, faible latence et réactivité maximale." Style="{StaticResource Muted}" TextWrapping="Wrap" Margin="0,4,0,9"/><Button Style="{StaticResource Btn}" Content="Changer de profil" Click="Productivity_Click"/><TextBlock Text="Profils rapides" Foreground="#8498AD" FontSize="10" FontWeight="Bold" Margin="0,8,0,7"/><Grid><Grid.ColumnDefinitions><ColumnDefinition/><ColumnDefinition/></Grid.ColumnDefinitions><Button Grid.Column="0" Style="{StaticResource BlueBtn}" Content="🎮 Gaming" Click="Gaming_Click"/><Button Grid.Column="1" Style="{StaticResource Btn}" Content="💼 Productivité" Click="Productivity_Click"/></Grid><Grid><Grid.ColumnDefinitions><ColumnDefinition/><ColumnDefinition/></Grid.ColumnDefinitions><Button Grid.Column="0" Style="{StaticResource Btn}" Content="🖥 Quotidien" Click="Productivity_Click"/><Button Grid.Column="1" Style="{StaticResource Btn}" Content="🎨 Création" Click="Productivity_Click"/></Grid></StackPanel></Border>
 </Grid>
 
+<Border x:Name="ExpertSection" Style="{StaticResource CardStyle}" Padding="15" Visibility="Collapsed">
+<StackPanel>
+<TextBlock Text="🧠  Mode Expert" Foreground="White" FontSize="19" FontWeight="Bold" Margin="0,0,0,5"/>
+<TextBlock Text="Réglages avancés pour utilisateurs expérimentés. Les actions importantes sont précédées d'une sauvegarde." Style="{StaticResource Muted}" TextWrapping="Wrap" Margin="0,0,0,12"/>
+<Grid>
+<Grid.ColumnDefinitions><ColumnDefinition/><ColumnDefinition/><ColumnDefinition/></Grid.ColumnDefinitions>
+<Border Grid.Column="0" Background="#0A1A2A" CornerRadius="11" Padding="12" Margin="0,0,8,0">
+<StackPanel><TextBlock Text="⚡ Plan performances" Foreground="White" FontWeight="Bold"/><TextBlock Text="Basculer le plan d'alimentation." Style="{StaticResource Muted}" Margin="0,4,0,8"/><Button Style="{StaticResource BlueBtn}" Content="Appliquer" Click="Power_Click"/></StackPanel></Border>
+<Border Grid.Column="1" Background="#0A1A2A" CornerRadius="11" Padding="12" Margin="4,0">
+<StackPanel><TextBlock Text="🌐 DNS avancé" Foreground="White" FontWeight="Bold"/><TextBlock Text="Choisir le profil DNS." Style="{StaticResource Muted}" Margin="0,4,0,8"/><Button Style="{StaticResource TealBtn}" Content="Profils DNS" Click="OpenDnsProfiles_Click"/></StackPanel></Border>
+<Border Grid.Column="2" Background="#0A1A2A" CornerRadius="11" Padding="12" Margin="8,0,0,0">
+<StackPanel><TextBlock Text="🎯 Jeu personnalisé" Foreground="White" FontWeight="Bold"/><TextBlock Text="Optimiser le jeu sélectionné." Style="{StaticResource Muted}" Margin="0,4,0,8"/><Button Style="{StaticResource PurpleBtn}" Content="Optimiser" Click="OptimizeCustomGame_Click"/></StackPanel></Border>
+</Grid>
+</StackPanel>
+</Border>
+
 <Border Style="{StaticResource CardStyle}" Padding="15">
 <StackPanel>
 <TextBlock Text="✅  Optimisations actives" Foreground="White" FontSize="19" FontWeight="Bold" Margin="0,0,0,10"/>
