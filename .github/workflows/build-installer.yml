@@ -42,14 +42,14 @@ jobs:
       - name: Upload installer artifact
         uses: actions/upload-artifact@v4
         with:
-          name: PCOptimizer-Setup-v8.0.1.2
-          path: Installer/Output/PCOptimizer-Setup-v8.0.1.2.exe
+          name: PCOptimizer-Setup-v8.0.1
+          path: Installer/Output/PCOptimizer-Setup-v8.0.1.exe
           if-no-files-found: error
 
       - name: Publish GitHub Release
         if: startsWith(github.ref, 'refs/tags/v7.0')
         uses: softprops/action-gh-release@v2
         with:
-          files: Installer/Output/PCOptimizer-Setup-v8.0.1.2.exe
+          files: Installer/Output/PCOptimizer-Setup-v8.0.1.exe
           generate_release_notes: true
           fail_on_unmatched_files: true
