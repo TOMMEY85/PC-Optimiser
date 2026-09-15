@@ -1,5 +1,5 @@
 #define MyAppName "PC Optimizer"
-#define MyAppVersion "7.0.2"
+#define MyAppVersion "8.0.1"
 #define MyAppExeName "PCOptimizer.exe"
 #define PublishDir "..\PCOptimizer.App\bin\Release\net8.0-windows\win-x64\publish"
 
@@ -11,14 +11,14 @@ DefaultDirName={autopf}\PC Optimizer
 DefaultGroupName=PC Optimizer
 DisableProgramGroupPage=yes
 OutputDir=Output
-OutputBaseFilename=PCOptimizer-Setup-v7.0.2
+OutputBaseFilename=PCOptimizer-Setup-v8.0.1
 Compression=lzma2
 SolidCompression=yes
 WizardStyle=modern
 PrivilegesRequired=admin
 ArchitecturesAllowed=x64compatible
 ArchitecturesInstallIn64BitMode=x64compatible
-UninstallDisplayName=PC Optimizer v7.0.2
+UninstallDisplayName=PC Optimizer v8.0.1
 UninstallDisplayIcon={app}\{#MyAppExeName}
 CloseApplications=yes
 RestartApplications=no
@@ -35,7 +35,7 @@ Source: "{#PublishDir}\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs
 
 [Icons]
 Name: "{autoprograms}\PC Optimizer"; Filename: "{app}\{#MyAppExeName}"
-Name: "{autodesktop}\PC Optimizer"; Filename: "{app}\{#MyAppExeName}"; IconFilename: "{app}\PCOptimizer-v6.ico"; Tasks: desktopicon
+Name: "{autodesktop}\PC Optimizer"; Filename: "{app}\{#MyAppExeName}"; IconFilename: "{app}\PCOptimizer-v8.ico"; Tasks: desktopicon
 
 [Run]
-Filename: "{app}\{#MyAppExeName}"; Description: "Lancer PC Optimizer v7.0.2"; Flags: nowait postinstall skipifsilent runascurrentuser
+Filename: "{app}\{#MyAppExeName}"; Description: "Lancer PC Optimizer v8.0.1"; Flags: nowait postinstall skipifsilent runascurrentuser
