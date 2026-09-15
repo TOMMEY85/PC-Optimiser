@@ -6,7 +6,7 @@ $installer = Join-Path $root 'Installer\PCOptimizer.iss'
 $iconDir = Join-Path $app 'Assets'
 New-Item -ItemType Directory -Force -Path $iconDir | Out-Null
 $iconPath = Join-Path $iconDir 'PCOptimizer-v8.ico'
-$iconBase64 = 'AAABAAEAEBAAAAEAIACiAAAAFgAAAIlQTkcNChoKAAAADUlIRFIAAAAQAAAAEAgGAAAAH/P/YQAAAGlJREFUeNqtU0EOwCAIA7JXb2f3bbwsGWEVUdabktJWgagI/tycqiHjZsYNAqI2Ir5wI5lZ1BbXJWUb4eFIRT0VYYYjq27P9kGXHfjfkN3sYQSrMrK+HAGR3wZuPL06JGcnsbRM0Q78hg6l4SCigdYc2QAAAABJRU5ErkJggg=='
+$iconBase64 = 'AAABAAEAICAAAAAAIAAiAQAAFgAAAIlQTkcNChoKAAAADUlIRIAAAAgAAAAIAgGAAAAc3p69AAAAOlJREFUeJzFl00WgyAMhJHnwp7NI7XLXsmz6c6u8KURAiQTnC2Y+RIiP9PyPs/woObSwLFijZatEQBtzONykDk3KTcRBXCs/7Ej0nz/lsdoTOoVpYkocyl2pESe5hwied4qMFpmgJ7s4QDc/PUZCGDN3AyAkgoAlX0IwlmgMS+NSb3RVQFN5rXGdO2Blr+iGQC57t0AHqVPamrCUjBN03HBN6Le3RDahEO3YpRgAJrs1QCIU9AEgDI3A1jNLwB+T/MUv3/eKlCDSOuvyT4X+wIo3dtzsppTr4k/Tr2XQXya0QmPPU5rH6D1A925SMrwN9LEAAAAAElFTkSuQmCC'
 [IO.File]::WriteAllBytes($iconPath, [Convert]::FromBase64String($iconBase64))
 Write-Host "Icône v8 générée : $iconPath" -ForegroundColor DarkGray
 
