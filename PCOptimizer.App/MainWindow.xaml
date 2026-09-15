@@ -94,7 +94,19 @@
 
 <Grid><Grid.ColumnDefinitions><ColumnDefinition/><ColumnDefinition/><ColumnDefinition/></Grid.ColumnDefinitions>
 <Border Grid.Column="0" Style="{StaticResource CardStyle}"><StackPanel><TextBlock Text="💾  Sauvegarde / restauration" Foreground="White" FontSize="15" FontWeight="Bold"/><TextBlock Text="Sauvegarde avant modification" Style="{StaticResource Muted}" Margin="0,4,0,8"/><StackPanel Orientation="Horizontal"><Button Style="{StaticResource Btn}" Content="Sauvegarder" Click="Backup_Click"/><Button Style="{StaticResource DangerBtn}" Content="Restaurer" Click="Restore_Click"/></StackPanel></StackPanel></Border>
-<Border Grid.Column="1" Style="{StaticResource CardStyle}"><StackPanel><TextBlock Text="🌐  Réseau / DNS / latence" Foreground="White" FontSize="15" FontWeight="Bold"/><TextBlock Text="Profils séparés : gaming et téléchargements. Le DNS influence surtout la résolution de noms, pas directement le débit." Style="{StaticResource Muted}" Margin="0,4,0,8" TextWrapping="Wrap"/><StackPanel Orientation="Horizontal"><Button Style="{StaticResource TealBtn}" Content="🎮 DNS Gaming" Click="DnsGaming_Click"/><Button Style="{StaticResource Btn}" Content="⬇ DNS Téléchargements" Click="DnsDownload_Click"/><Button Style="{StaticResource Btn}" Content="↺ Automatique" Click="DnsAuto_Click"/></StackPanel><TextBlock x:Name="DnsStatusText" Text="DNS : automatique" Style="{StaticResource Muted}" Margin="0,4,0,0"/></StackPanel></Border> Foreground="White" FontSize="15" FontWeight="Bold"/><TextBlock Text="DNS + ping" Style="{StaticResource Muted}" Margin="0,4,0,8"/><Button Style="{StaticResource Btn}" Content="Tester la connexion" Click="Network_Click"/></StackPanel></Border>
+<Border Grid.Column="1" Style="{StaticResource CardStyle}">
+<StackPanel>
+<TextBlock Text="🌐  Réseau / DNS / latence" Foreground="White" FontSize="15" FontWeight="Bold"/>
+<TextBlock Text="Profils séparés : gaming et téléchargements. Le DNS influence surtout la résolution de noms, pas directement le débit." Style="{StaticResource Muted}" Margin="0,4,0,8" TextWrapping="Wrap"/>
+<StackPanel Orientation="Horizontal">
+<Button Style="{StaticResource TealBtn}" Content="🎮 DNS Gaming" Click="DnsGaming_Click"/>
+<Button Style="{StaticResource Btn}" Content="⬇ DNS Téléchargements" Click="DnsDownload_Click"/>
+<Button Style="{StaticResource Btn}" Content="↺ Automatique" Click="DnsAuto_Click"/>
+<Button Style="{StaticResource Btn}" Content="📡 Tester la connexion" Click="Network_Click"/>
+</StackPanel>
+<TextBlock x:Name="DnsStatusText" Text="DNS : automatique" Style="{StaticResource Muted}" Margin="0,4,0,0"/>
+</StackPanel>
+</Border>
 <Border Grid.Column="2" Style="{StaticResource CardStyle}"><StackPanel><TextBlock Text="🧹  Nettoyage" Foreground="White" FontSize="15" FontWeight="Bold"/><TextBlock Text="Temporaires Windows" Style="{StaticResource Muted}" Margin="0,4,0,8"/><Button Style="{StaticResource GreenBtn}" Content="Nettoyer maintenant" Click="Cleanup_Click"/></StackPanel></Border>
 </Grid>
 
