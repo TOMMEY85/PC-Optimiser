@@ -2,7 +2,7 @@ name: Build PC Optimizer
 
 on:
   push:
-    branches: [ main, v7.0 ]
+    branches: [ main, v7.0, v8.0 ]
     tags:
       - 'v*'
   workflow_dispatch:
