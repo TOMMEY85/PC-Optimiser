@@ -6,14 +6,14 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <ApplicationManifest>app.manifest</ApplicationManifest>
-    <ApplicationIcon>Assets\PCOptimizer-v6.ico</ApplicationIcon>
+    <ApplicationIcon>Assets\PCOptimizer-v8.ico</ApplicationIcon>
     <ApplicationIconAndManifest>true</ApplicationIconAndManifest>
     <AssemblyName>PCOptimizer</AssemblyName>
     <Product>PC Optimizer</Product>
     <AssemblyTitle>PC Optimizer</AssemblyTitle>
-    <Version>8.0.0</Version>
-    <AssemblyVersion>8.0.0.0</AssemblyVersion>
-    <FileVersion>8.0.0.0</FileVersion>
+    <Version>8.0.1</Version>
+    <AssemblyVersion>8.0.1.0</AssemblyVersion>
+    <FileVersion>8.0.1.0</FileVersion>
     <EnableDefaultApplicationDefinition>false</EnableDefaultApplicationDefinition>
     <EnableDefaultPageItems>false</EnableDefaultPageItems>
   </PropertyGroup>
@@ -24,5 +24,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Resource Include="Assets\PCOptimizer-v6.ico" />
+      <Resource Include="Assets\PCOptimizer-v8.ico" />
   </ItemGroup>
 </Project>
