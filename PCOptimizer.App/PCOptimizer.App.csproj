@@ -6,8 +6,6 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <ApplicationManifest>app.manifest</ApplicationManifest>
-    <ApplicationIcon>Assets\PCOptimizer-v8.ico</ApplicationIcon>
-    <ApplicationIconAndManifest>true</ApplicationIconAndManifest>
     <AssemblyName>PCOptimizer</AssemblyName>
     <Product>PC Optimizer</Product>
     <AssemblyTitle>PC Optimizer</AssemblyTitle>
@@ -23,6 +21,5 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-      <Resource Include="Assets\PCOptimizer-v8.ico" />
   </ItemGroup>
 </Project>
